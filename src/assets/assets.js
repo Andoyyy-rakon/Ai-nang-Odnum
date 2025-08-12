@@ -11,6 +11,7 @@ import user_icon from './user_icon.jpg'
 import message_icon from './message_icon.png'
 import code_icon from './code_icon.png'
 import send_icon from './send_icon.png'
+import AiNgOdnumLogo from './AiNgOdnum.png'
 
 export const assets = {
     history_icon,
@@ -26,4 +27,6 @@ export const assets = {
     message_icon,
     code_icon,
     send_icon,
+    AiNgOdnumLogo,
+   
 }

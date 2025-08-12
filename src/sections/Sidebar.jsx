@@ -5,25 +5,33 @@ const Sidebar = () => {
 
     const [toggle,settogle] =useState(false)
     const [mobile,setmobile] = useState(false)
+    const [animate , setanimate] = useState(true)
+
 
     const shrink = ()=>{
         settogle((prev)=>!prev)
     }
 
+
     const mobileShrink = ()=>{
         setmobile(prev=>!prev)
+        setanimate(animate=>!animate)
+        setTimeout(() => {
+            set(animate=>!animate)
+        }, 3000);
+        
     }
 
-    
+
 
   return (
 
     <>
-        <div className="md:hidden absolute z-10 p-6">
-            <img src={assets.menu_icon} alt="" width={30} className="" onClick={mobileShrink}/>
+        <div className={`md:hidden absolute z-10 px-[31px] py-[24px]  transition-opacity  ${animate ? "opacity-100" :"opacity-0"}`}>
+            <img src={assets.menu_icon} alt="" width={32}  onClick={mobileShrink}/>
         </div>
 
-        <div className={`min-h-screen inline-flex flex-col bg-gray-300 px-7 py-5  justify-between  `} >
+        <div className={`min-h-screen inline-flex flex-col bg-gray-300 px-7 py-5  justify-between fixed ${mobile ? "translate-x-0" : "-translate-x-full"}  transition-transform duration-300  md:static md:translate-x-0 `} >
         <div className="flex flex-col gap-6">
             <img src={assets.menu_icon} alt="" width={40} className="p-1 cursor-pointer" onClick={shrink}/>
             <div className="flex justify-center items-center gap-3 px-4 py-3 rounded-full  bg-gray-400 cursor-pointer ">

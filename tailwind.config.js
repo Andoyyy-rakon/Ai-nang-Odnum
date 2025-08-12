@@ -8,6 +8,9 @@ export default {
     extend: {
       fontFamily:{
          Outfit: ['Outfit', 'sans-serif'],
+      },
+      backgroundImage:{
+        'card': "url(./src/assets/AiNgOdnum.png)"
       }
     },
   },
