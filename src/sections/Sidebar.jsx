@@ -17,8 +17,9 @@ const Sidebar = () => {
         setmobile(prev=>!prev)
         setanimate(animate=>!animate)
         setTimeout(() => {
-            set(animate=>!animate)
-        }, 3000);
+            console.log("function")
+            setanimate(animate=>!animate)
+        }, 1000);
         
     }
 
@@ -27,11 +28,11 @@ const Sidebar = () => {
   return (
 
     <>
-        <div className={`md:hidden absolute z-10 px-[31px] py-[24px]  transition-opacity  ${animate ? "opacity-100" :"opacity-0"}`}>
+        <div className={`md:hidden absolute z-20 px-[31px] py-[24px]  transition-opacity  ${animate ? "opacity-100" :"opacity-0"}`}>
             <img src={assets.menu_icon} alt="" width={32}  onClick={mobileShrink}/>
         </div>
 
-        <div className={`min-h-screen inline-flex flex-col bg-gray-300 px-7 py-5  justify-between fixed ${mobile ? "translate-x-0" : "-translate-x-full"}  transition-transform duration-300  md:static md:translate-x-0 `} >
+        <div className={`min-h-screen inline-flex flex-col z-10 bg-gray-300 px-7 py-5  justify-between fixed ${mobile ? "translate-x-0" : "-translate-x-full"}  transition-transform duration-300  md:static md:translate-x-0 `} >
         <div className="flex flex-col gap-6">
             <img src={assets.menu_icon} alt="" width={40} className="p-1 cursor-pointer" onClick={shrink}/>
             <div className="flex justify-center items-center gap-3 px-4 py-3 rounded-full  bg-gray-400 cursor-pointer ">
