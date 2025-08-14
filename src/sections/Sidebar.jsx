@@ -1,24 +1,42 @@
 import { assets } from "../assets/assets"
 import { useState } from "react"
-const Sidebar = () => {
+import { Usercontext } from "../usercontext/Usercontext"
+import { useContext } from "react"
+import { useEffect } from "react"
+const Sidebar = ({setpromt}) => {
 
 
-    const [toggle,settogle] =useState(false)
-    const [mobile,setmobile] = useState(false)
-    const [animate , setanimate] = useState(true)
+    const [toggle,settogle] =useState(false);
+    const [mobile,setmobile] = useState(false);
+    const [animate , setanimate] = useState(true);
+    const {history} = useContext(Usercontext);
+    const [show,setshow] =useState(false);
+    const {setresult} = useContext(Usercontext)
+
+    
+
+
+
+    useEffect(()=>{
+        if(history.length>0){
+            setshow(true);
+        }
+    },[history])
+
+
 
 
     const shrink = ()=>{
-        settogle((prev)=>!prev)
+        settogle((prev)=>!prev);
     }
 
 
     const mobileShrink = ()=>{
-        setmobile(prev=>!prev)
-        setanimate(animate=>!animate)
+        setmobile(prev=>!prev);
+        setanimate(animate=>!animate);
         setTimeout(() => {
             console.log("function")
-            setanimate(animate=>!animate)
+            setanimate(animate=>!animate);
         }, 1000);
         
     }
@@ -35,7 +53,7 @@ const Sidebar = () => {
         <div className={`min-h-screen inline-flex flex-col z-10 bg-gray-300 px-7 py-5  justify-between fixed ${mobile ? "translate-x-0" : "-translate-x-full"}  transition-transform duration-300  md:static md:translate-x-0 `} >
         <div className="flex flex-col gap-6">
             <img src={assets.menu_icon} alt="" width={40} className="p-1 cursor-pointer" onClick={shrink}/>
-            <div className="flex justify-center items-center gap-3 px-4 py-3 rounded-full  bg-gray-400 cursor-pointer ">
+            <div className="flex justify-center items-center gap-3 px-4 py-3 rounded-full  bg-gray-400 cursor-pointer " onClick={()=>setresult(false)}>
                 <img src={assets.plus_icon} alt="" width={20} />
                 {!toggle && <h3> New Chat</h3>}
                 
@@ -43,11 +61,21 @@ const Sidebar = () => {
 
             {!toggle && <div className="flex flex-col gap-2">
                 <p className="font-bold font">Recent</p>
-                <div   className="flex justify-center items-center gap-1 mt-3 cursor-pointer hover:bg-gray-400 py-1 px-5 rounded-3xl transition-all duration-300">
+
+           
+                {show && history.map((item)=>(
+                <div   className="flex justify-start items-center gap-1 mt-1 cursor-pointer hover:bg-gray-400  px-5 rounded-3xl transition-all duration-300" onClick={()=>setpromt(item)}>        
                     <img src={assets.message_icon} alt="" width={30}/>
-                    <p>What a world</p>
-                    
+                    <p>{item.slice(0,14)}</p>   
                 </div>
+
+                ))}
+                    
+                           
+
+                
+            
+
                 
             </div>}
 
