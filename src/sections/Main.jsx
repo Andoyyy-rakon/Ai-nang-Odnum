@@ -5,7 +5,7 @@ import { askAiNgOdnum } from "../../aaa"
 import { Usercontext } from "../usercontext/Usercontext"
 import { useContext } from "react"
 
-// Updated
+
 const Main = ({promt}) => {
 
    const [input,setinput] = useState("");
@@ -14,6 +14,7 @@ const Main = ({promt}) => {
    const [loading,setlloading] =useState(false);
   const {result,setresult} = useContext(Usercontext);
   const {additem}=useContext(Usercontext);
+  const [messsage,setmessage] = useState([])
 
 
   useEffect(()=>{
@@ -45,6 +46,8 @@ const Main = ({promt}) => {
     
 
     if (value.trim()==="")return;
+
+    setmessage(prev=>[...prev,{role:"user",content:value}])
     setresult(true);
     setlloading(true);
     additem(value);
@@ -69,8 +72,8 @@ const Main = ({promt}) => {
   .replace(/---/g, "")                            
   .replace(/\*\*(.*?)\*\*/g, "<b>$1</b>") 
     setlloading(false);
-    setreply(formatted);
-    console.log(reply);
+    setmessage(prev=>[...prev,{role:"assestan",content:formatted}])
+    
   }
 
 
@@ -101,28 +104,30 @@ to-[#e4e4e7]
     </div> 
     :
         <div className=" max-xl:mx-5  max-w-[1000px]  flex-1 flex-col  m-auto ">
-        <div className="flex flex-row-reverse ">
-           <img src={assets.user_icon} alt="" className="w-10 h-10 rounded-full" />
-           <p className=" m-4 text-base p-3 rounded-full bg-slate-200">{previnput}</p>
-        </div>
-        {!loading?        <div className="flex flex-row">
-          <img src={assets.AiNgOdnumLogo} alt="" className="w-10 h-10 rounded-full" />
-          <p className="text-base leading-7 m-5 " dangerouslySetInnerHTML={{ __html: reply }} />
-        </div>:
-        <>
-        <img src={assets.AiNgOdnumLogo} alt="" className="w-10 h-10 rounded-full" />
-        <div className="spinner mx-[50px]">
-          <div></div>
-          <div></div>
-          <div></div>
-          <div></div>
-          <div></div>
-          <div></div>
-        </div>
+          {messsage.map((item,index)=>(
+            <div key={item.content} className={`flex ${item.role==="user"? "flex-row-reverse":"flex-row"}`}>
+              <img src={item.role==="user"? assets.user_icon:assets.AiNgOdnumLogo} alt="" className="w-10 h-10 rounded-full" />
+              <p className={`${item.role==="user"?"m-4 text-base p-3 rounded-full bg-slate-200":"text-base leading-7 m-5"}`} dangerouslySetInnerHTML={{__html:item.content}}/>
+            </div>
+          ))}                  
+
+          {loading&& <div>
+            <img src={assets.AiNgOdnumLogo} alt="" className="w-10 h-10 rounded-full" />
+            <div className="spinner mx-[50px]">
+              <div></div>
+              <div></div>
+              <div></div>
+              <div></div>
+              <div></div>
+              <div></div>
+            </div>
+          </div>}
+
+
         
         
-        </>
-}
+       
+
 
     </div>}
 
