@@ -9,6 +9,7 @@ export default function App() {
   const [result,setresult] = useState(false)
   const [history,sethistory] = useState([])
   const [promt,setpromt] = useState("")
+  const [messsage,setmessage] = useState([])
   
 
 
@@ -31,8 +32,8 @@ export default function App() {
   return (
     <section className="min-h-screen flex">
 
-      <Usercontext.Provider value={{result,setresult, additem,history}}>
-          <Sidebar setpromt={setpromt} />
+      <Usercontext.Provider value={{result,setresult, additem,history,messsage,setmessage,sethistory}}>
+          <Sidebar setpromt={setpromt}/>
           <Main promt={promt}/>
       </Usercontext.Provider>
 

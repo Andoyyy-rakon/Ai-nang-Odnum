@@ -9,9 +9,11 @@ const Sidebar = ({setpromt}) => {
     const [toggle,settogle] =useState(false);
     const [mobile,setmobile] = useState(false);
     const [animate , setanimate] = useState(true);
-    const {history} = useContext(Usercontext);
+    const {history,sethistory} = useContext(Usercontext);
     const [show,setshow] =useState(false);
     const {setresult} = useContext(Usercontext)
+    const {setmessage} = useContext(Usercontext)
+    
 
     
 
@@ -41,6 +43,11 @@ const Sidebar = ({setpromt}) => {
         
     }
 
+    const newchat = ()=>{
+        setresult(false)
+        sethistory([])
+        setmessage([])
+    }
 
 
   return (
@@ -53,7 +60,7 @@ const Sidebar = ({setpromt}) => {
         <div className={`min-h-screen inline-flex flex-col z-10 bg-gray-300 px-7 py-5  justify-between fixed ${mobile ? "translate-x-0" : "-translate-x-full"}  transition-transform duration-300  md:static md:translate-x-0 `} >
         <div className="flex flex-col gap-6">
             <img src={assets.menu_icon} alt="" width={40} className="p-1 cursor-pointer" onClick={shrink}/>
-            <div className="flex justify-center items-center gap-3 px-4 py-3 rounded-full  bg-gray-400 cursor-pointer " onClick={()=>setresult(false)}>
+            <div className="flex justify-center items-center gap-3 px-4 py-3 rounded-full  bg-gray-400 cursor-pointer " onClick={newchat}>
                 <img src={assets.plus_icon} alt="" width={20} />
                 {!toggle && <h3> New Chat</h3>}
                 

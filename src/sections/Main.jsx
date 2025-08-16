@@ -9,12 +9,10 @@ import { useContext } from "react"
 const Main = ({promt}) => {
 
    const [input,setinput] = useState("");
-   const [reply, setreply] = useState("");
-   const [previnput, setprevinput] = useState("");
    const [loading,setlloading] =useState(false);
   const {result,setresult} = useContext(Usercontext);
   const {additem}=useContext(Usercontext);
-  const [messsage,setmessage] = useState([])
+  const {messsage,setmessage} = useContext(Usercontext)
 
 
   useEffect(()=>{
@@ -52,7 +50,7 @@ const Main = ({promt}) => {
     setlloading(true);
     additem(value);
     setinput("");
-    setprevinput(value);
+
     const response  = await askAiNgOdnum(value);
     let responseArray = response.split("**");
     console.log(responseArray);
