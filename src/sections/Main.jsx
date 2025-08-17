@@ -6,6 +6,7 @@ import { Usercontext } from "../usercontext/Usercontext"
 import { useContext } from "react"
 
 
+
 const Main = ({promt}) => {
 
    const [input,setinput] = useState("");

@@ -3,6 +3,22 @@ import { useState } from "react"
 import { Usercontext } from "../usercontext/Usercontext"
 import { useContext } from "react"
 import { useEffect } from "react"
+
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { library } from '@fortawesome/fontawesome-svg-core'
+
+import { fas } from '@fortawesome/free-solid-svg-icons'
+import { far } from '@fortawesome/free-regular-svg-icons'
+import { fab } from '@fortawesome/free-brands-svg-icons'
+
+library.add(fas, far, fab)
+
+
+import { helpdata,fData } from "../components/helpdata"
+import Helpcard from "../components/Helpcard"
+import Fdata from "../components/Fdata"
+
+
 const Sidebar = ({setpromt}) => {
 
 
@@ -13,6 +29,9 @@ const Sidebar = ({setpromt}) => {
     const [show,setshow] =useState(false);
     const {setresult} = useContext(Usercontext)
     const {setmessage} = useContext(Usercontext)
+    const [showmodal,setshowmodal]=useState(false)
+    const [scrlbar,setscrlbar]=useState(false)
+    const [expand,setexpand] = useState(null)
     
 
     
@@ -47,6 +66,13 @@ const Sidebar = ({setpromt}) => {
         setresult(false)
         sethistory([])
         setmessage([])
+    }
+
+
+
+    const toExpand=(item)=>{
+        setexpand(prev=>prev===item?null:item)
+        setscrlbar(expand===item? false:true)
     }
 
 
@@ -89,7 +115,7 @@ const Sidebar = ({setpromt}) => {
         </div>
 
         <div className="space-y-3 mt-5">
-            <div className="flex gap-2 items-center cursor-pointer hover:bg-gray-400 py-1 px-5 transition-all duration-300 rounded-3xl">
+            <div className="flex gap-2 items-center cursor-pointer hover:bg-gray-400 py-1 px-5 transition-all duration-300 rounded-3xl"  onClick={()=>setshowmodal(true)}>
                 <img src={assets.question_icon} alt="" width={25} height={25} />
                 {!toggle && <p>Help</p>}
                 
@@ -112,6 +138,53 @@ const Sidebar = ({setpromt}) => {
         </div>
 
     </div>
+
+
+    {showmodal && 
+        <>
+            <div className="fixed inset-0 bg-black z-40 bg-opacity-50 transition-opacity duration-300 cursor-pointer " onClick={()=>setshowmodal(false)}>
+            </div>
+
+            <div className={` overflow-auto scrollbar max-xl:max-w-[90%] xl:max-w-[50%] items-center z-50 m-auto transition-all duration-300  flex flex-col bg-slate-100 fixed inset-0 max-h-[90%] ${!scrlbar?"rounded-3xl":"rounded-l-3xl"} shadow-md shadow-slate-800 p-5 pb-6`} >
+        
+                <button className="absolute right-4" onClick={()=>setshowmodal(false)}>
+
+                    
+                    <FontAwesomeIcon icon="fa-regular fa-circle-xmark" className="text-2xl"/>
+                </button>
+
+                <h2 className="text-xl mt-3 font-semibold">Help & Guide</h2>
+            
+                <div className="flex flex-col gap-3 flex-1 p-10 ">
+                    {helpdata.map((item)=>(
+                        <Helpcard
+                        key={item.id}
+                        {...item}
+                        isExpand={expand===item.id}
+                        isToggle={()=>toExpand(item.id)} // ari is daw i call mo ang function sa piyak nga file kag diri i run sa parent
+                        />
+                    ))}
+                </div>
+
+
+                <div className="bottom-11 flex flex-col gap-2 w-full px-12">
+                    <h1 className="font-bold text-lg">FAQ</h1>
+                    {fData.map((item)=>(
+                        <Fdata key={item.id} {...item}/>
+                    ))}
+                </div>
+
+
+
+            </div>
+        
+        </>
+
+
+
+
+    
+    }
     
     
     </>

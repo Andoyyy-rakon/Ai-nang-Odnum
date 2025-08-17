@@ -70,3 +70,30 @@
     transform: rotate(45deg) rotateX(-385deg) rotateY(385deg);
   }
 }
+
+
+
+
+@layer utilities {
+
+  .scrollbar::-webkit-scrollbar {
+    width: 2px;
+    height: 1px;
+  }
+
+
+  .scrollbar::-webkit-scrollbar-track {
+    background:transparent;
+  }
+
+
+  .scrollbar::-webkit-scrollbar-thumb {
+    background: transparent; 
+    border-radius: 9999px;
+  }
+
+ 
+  .scrollbar::-webkit-scrollbar-thumb:hover {
+    background: transparent; 
+  }
+}
