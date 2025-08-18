@@ -25,7 +25,7 @@ export const helpdata  = [
     title: "Limitations",
     contents: [
       " ✖ The app does not store the full conversation (only your recent inputs are saved).",
-      " ✖ Refreshing the page will reset your history (unless you add local storage)."
+      " ✖ Refreshing the page will reset your history ."
     ]
   },
   {

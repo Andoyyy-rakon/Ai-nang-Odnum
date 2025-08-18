@@ -115,20 +115,20 @@ const Sidebar = ({setpromt}) => {
         </div>
 
         <div className="space-y-3 mt-5">
-            <div className="flex gap-2 items-center cursor-pointer hover:bg-gray-400 py-1 px-5 transition-all duration-300 rounded-3xl"  onClick={()=>setshowmodal(true)}>
+            <div className="flex  gap-2 items-center cursor-pointer hover:bg-gray-400 py-1 px-5 transition-all duration-300 rounded-3xl"  onClick={()=>setshowmodal(true)}>
                 <img src={assets.question_icon} alt="" width={25} height={25} />
                 {!toggle && <p>Help</p>}
                 
             </div>
 
-            <div className="flex gap-2 items-center cursor-pointer hover:bg-gray-400 py-1 px-5 transition-all duration-300 rounded-3xl ">
+            <div className="flex  gap-2 items-center cursor-pointer hover:bg-gray-400 py-1 px-5 transition-all duration-300 rounded-3xl ">
                 <img src={assets.history_icon} alt="" width={25} height={25} />
                 {!toggle && <p>Activity</p>}
                 
             </div>
 
 
-            <div className="flex gap-2 items-center cursor-pointer hover:bg-gray-400 py-1 px-5 transition-all duration-300 rounded-3xl">
+            <div className="flex  gap-2 items-center cursor-pointer hover:bg-gray-400 py-1 px-5 transition-all duration-300 rounded-3xl">
                 <img src={assets.setting_icon} alt="" width={25} height={25} />
                 {!toggle && <p>Setting</p>}
                 
