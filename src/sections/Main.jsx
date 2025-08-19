@@ -87,7 +87,7 @@ via-[#a1a1aa]
 to-[#e4e4e7]
 ">
   <div className=" flex justify-between px-10 py-6 max-md:ml-7 max-sm:justify-end items-center">
-    <div><img src={assets.AiNgOdnumLogo} alt="" className="max-w-[60px]  max-md:ml-5" /></div>
+    <div><img src={assets.AiNgOdnumLogo} alt="" className="max-w-[60px]  max-md:ml-5 " /></div>
     
       <div><img src={assets.user_icon} alt="" className="w-[60px] rounded-full max-md:w-[40px] max-sm:hidden" /></div>
   </div>

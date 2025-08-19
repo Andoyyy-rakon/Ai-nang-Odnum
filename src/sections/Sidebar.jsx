@@ -56,7 +56,6 @@ const Sidebar = ({setpromt}) => {
         setmobile(prev=>!prev);
         setanimate(animate=>!animate);
         setTimeout(() => {
-            console.log("function")
             setanimate(animate=>!animate);
         }, 1000);
         
@@ -86,8 +85,8 @@ const Sidebar = ({setpromt}) => {
         <div className={`min-h-screen inline-flex flex-col z-10 bg-gray-300 px-7 py-5  justify-between fixed ${mobile ? "translate-x-0" : "-translate-x-full"}  transition-transform duration-300  md:static md:translate-x-0 `} >
         <div className="flex flex-col gap-6">
             <img src={assets.menu_icon} alt="" width={40} className="p-1 cursor-pointer" onClick={shrink}/>
-            <div className="flex justify-center items-center gap-3 px-4 py-3 rounded-full  bg-gray-400 cursor-pointer " onClick={newchat}>
-                <img src={assets.plus_icon} alt="" width={20} />
+            <div className="active:bg-gray-400 hover:bg-gray-100 duration-300 transition-all flex justify-center items-center gap-3 px-4 py-3 rounded-full  bg-gray-400 cursor-pointer " onClick={newchat}>
+                <img src={assets.plus_icon} alt="" width={20} className="hover:animate-spin"/>
                 {!toggle && <h3> New Chat</h3>}
                 
             </div>
