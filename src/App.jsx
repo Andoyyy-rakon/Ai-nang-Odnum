@@ -2,6 +2,8 @@ import Main from "./sections/Main"
 import Sidebar from "./sections/Sidebar"
 import { useState } from "react"
 import { Usercontext } from "./usercontext/Usercontext"
+import { Route,Routes } from "react-router-dom"
+import Activity from "./sections/Activity"
 
 
 export default function App() {
@@ -30,14 +32,30 @@ export default function App() {
 
 
   return (
-    <section className="min-h-screen flex">
+
 
       <Usercontext.Provider value={{result,setresult, additem,history,messsage,setmessage,sethistory}}>
-          <Sidebar setpromt={setpromt}/>
-          <Main promt={promt}/>
-      </Usercontext.Provider>
+        <Routes>
+          <Route 
+            path="/"
+           element={ 
+              <section className="min-h-screen flex">
+                <Sidebar setpromt={setpromt} />
+                <Main promt={promt} />
+              </section>
+           }
+          > 
+          </Route>
 
-    </section>
+          <Route 
+           path="/Activity"
+           element={
+            <Activity/>
+           }
+          >
+          </Route>
+        </Routes>
+      </Usercontext.Provider>
 
   )
 }
