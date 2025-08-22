@@ -20,7 +20,6 @@ const Main = ({promt}) => {
     let timer;
     if(promt){
        timer = setTimeout(()=>{
-        setprevinput(promt)
         handlesent(promt)
       },0);
     }

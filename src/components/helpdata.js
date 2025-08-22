@@ -46,17 +46,17 @@ export const helpdata  = [
 export const fData = [
   {
     id: 1,
-    question: "Bakit nawawala ang history ko pag refresh ng page?",
+    question: "Why does my history disappear when I refresh the page?",
     answer: "Currently, the sidebar only stores data in memory. Once you refresh, it resets."
   },
   {
     id: 2,
-    question: "Pwede ba itong sumagot tulad ng ChatGPT?",
+    question: "Can this respond like ChatGPT?",
     answer: "For now, this project is frontend only. But you can integrate an API later."
   },
   {
     id: 3,
-    question: "Ano ang purpose ng sidebar?",
+    question: "What is the purpose of the sidebar?",
     answer: "To let you quickly revisit your recent questions/inputs."
   }
 ];

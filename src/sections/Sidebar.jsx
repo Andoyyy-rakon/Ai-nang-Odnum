@@ -17,6 +17,7 @@ library.add(fas, far, fab)
 import { helpdata,fData } from "../components/helpdata"
 import Helpcard from "../components/Helpcard"
 import Fdata from "../components/Fdata"
+import { width } from "@fortawesome/free-brands-svg-icons/fa11ty"
 
 
 const Sidebar = ({setpromt}) => {
@@ -32,6 +33,7 @@ const Sidebar = ({setpromt}) => {
     const [showmodal,setshowmodal]=useState(false)
     const [scrlbar,setscrlbar]=useState(false)
     const [expand,setexpand] = useState(null)
+    const [wexpand,wsetexpand]=useState(false)
     
 
     
@@ -48,7 +50,10 @@ const Sidebar = ({setpromt}) => {
 
 
     const shrink = ()=>{
-        settogle((prev)=>!prev);
+        setTimeout(()=>{
+            settogle((prev)=>!prev);
+        },100)
+        wsetexpand(prev=>!prev);
     }
 
 
@@ -58,6 +63,7 @@ const Sidebar = ({setpromt}) => {
         setTimeout(() => {
             setanimate(animate=>!animate);
         }, 1000);
+        
         
     }
 
@@ -78,11 +84,11 @@ const Sidebar = ({setpromt}) => {
   return (
 
     <>
-        <div className={`md:hidden absolute z-20 px-[31px] py-[24px]  transition-opacity  ${animate ? "opacity-100" :"opacity-0"}`}>
+        <div className={`md:hidden  absolute z-20 px-[31px] py-[24px]  transition-opacity  ${animate ? "opacity-100" :"opacity-0"}`}>
             <img src={assets.menu_icon} alt="" width={32}  onClick={mobileShrink}/>
         </div>
 
-        <div className={`min-h-screen inline-flex flex-col z-10 bg-gray-300 px-7 py-5  justify-between fixed ${mobile ? "translate-x-0" : "-translate-x-full"}  transition-transform duration-300  md:static md:translate-x-0 `} >
+        <div style={{width:!wexpand? "300px" : "120px"}} className={`min-h-screen  transition-[width] duration-300 inline-flex flex-col z-10 bg-gray-300 px-7 py-5  justify-between fixed ${mobile ? "translate-x-0" : "-translate-x-full"}  transition-transform duration-300  md:static md:translate-x-0 `} >
         <div className="flex flex-col gap-6">
             <img src={assets.menu_icon} alt="" width={40} className="p-1 cursor-pointer" onClick={shrink}/>
             <div className="active:bg-gray-400 hover:bg-gray-100 duration-300 transition-all flex justify-center items-center gap-3 px-4 py-3 rounded-full  bg-gray-400 cursor-pointer " onClick={newchat}>
@@ -98,7 +104,7 @@ const Sidebar = ({setpromt}) => {
                 {show && history.map((item)=>(
                 <div   className="flex justify-start items-center gap-1 mt-1 cursor-pointer hover:bg-gray-400  px-5 rounded-3xl transition-all duration-300" onClick={()=>setpromt(item)}>        
                     <img src={assets.message_icon} alt="" width={30}/>
-                    <p>{item.slice(0,14)}</p>   
+                    <p>{item.slice(0,17)}</p>   
                 </div>
 
                 ))}
