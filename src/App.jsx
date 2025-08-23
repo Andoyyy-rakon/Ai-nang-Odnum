@@ -21,7 +21,7 @@ export default function App() {
       let recentarray = [item,...prev]
 
       const finalarray = recentarray.filter((value,index)=>{
-        return recentarray.indexOf(value)===index;
+        return recentarray.findIndex(obj=>obj.content === value.content)===index;
       })
 
       return finalarray

@@ -30,7 +30,6 @@ const Main = ({promt}) => {
 
 
  const enterSent = (e)=>{
-  console.log(e.key)
     if(e.key==="Enter"){
       handlesent(input)
     }
@@ -45,15 +44,33 @@ const Main = ({promt}) => {
 
     if (value.trim()==="")return;
 
+    let now = new Date()
+    
+    const dateformat = now.toLocaleDateString("en-PH",{
+      month:"short",
+      day:"numeric",
+      year:"numeric"
+    })
+    const timeformat = now.toLocaleTimeString("en-PH",{
+      hour:"2-digit",
+      minute:"2-digit"
+    })
+
+    console.log(dateformat)
+    console.log(timeformat)
+    
+
+
+
     setmessage(prev=>[...prev,{role:"user",content:value}])
     setresult(true);
     setlloading(true);
-    additem(value);
+    additem({content:value,date:dateformat,time:timeformat});
     setinput("");
 
     const response  = await askAiNgOdnum(value);
     let responseArray = response.split("**");
-    console.log(responseArray);
+   
     let newresponse = "";
   for (let i = 0; i < responseArray.length; i++) {
     if (i === 0 || i % 2 !== 1) {
