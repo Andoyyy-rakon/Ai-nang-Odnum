@@ -53,7 +53,7 @@ const Sidebar = ({setpromt}) => {
     const shrink = ()=>{
         setTimeout(()=>{
             settogle((prev)=>!prev);
-        },100)
+        },50)
         wsetexpand(prev=>!prev);
     }
 
@@ -89,7 +89,7 @@ const Sidebar = ({setpromt}) => {
             <img src={assets.menu_icon} alt="" width={32}  onClick={mobileShrink}/>
         </div>
 
-        <div  className={`min-h-screen  transition-all   duration-300 inline-flex flex-col z-10 bg-gray-300 px-7 py-5  justify-between fixed ${mobile ? "translate-x-0" : "-translate-x-full"}  md:static md:translate-x-0  ${!wexpand ? "w-[250px]" : "w-[120px]"}  `} >
+        <div  className={`min-h-screen ease-in-out  transition-all   duration-300 inline-flex flex-col z-10 bg-gray-300 px-7 py-5  justify-between fixed ${mobile ? "translate-x-0" : "-translate-x-full"}  md:static md:translate-x-0  ${!wexpand ? "w-[250px]" : "w-[120px]"}  `} >
         <div className="flex flex-col gap-6">
             <img src={assets.menu_icon} alt="" width={40} className="p-1 cursor-pointer" onClick={shrink}/>
             <div className="active:bg-gray-400 hover:bg-gray-100 duration-300 transition-all flex justify-center items-center gap-3 px-4 py-3 rounded-full  bg-gray-400 cursor-pointer " onClick={newchat}>
@@ -98,14 +98,14 @@ const Sidebar = ({setpromt}) => {
                 
             </div>
 
-            {!toggle && <div className="flex flex-col gap-2">
+            {!toggle && <div className="flex flex-col gap-2 ">
                 <p className="font-bold font">Recent</p>
 
            
                 {show && history.map((item)=>(
-                <div key={item}   className="flex justify-start items-center gap-1 mt-1 cursor-pointer hover:bg-gray-400  px-5 rounded-3xl transition-all duration-300" onClick={()=>setpromt(item)}>        
+                <div key={item}   className="flex justify-start items-center  gap-1 mt-1 cursor-pointer hover:bg-gray-400  px-5 rounded-3xl transition-all duration-300" onClick={()=>setpromt(item)}>        
                     <img src={assets.message_icon} alt="" width={30}/>
-                    <p>{item.content.slice(0,17)}</p>   
+                    <p className="" >{item.content.slice(0,13)}</p>   
                 </div>
 
                 ))}
@@ -123,19 +123,19 @@ const Sidebar = ({setpromt}) => {
         <div className="flex flex-col ">
             <div className="flex  gap-2 items-center cursor-pointer hover:bg-gray-400 py-1 px-5 transition-all duration-300 rounded-3xl"  onClick={()=>setshowmodal(true)}>
                 <img src={assets.question_icon} alt="" width={25} height={25} />
-                {!toggle && <p className="text-lg tracking-wide">Help</p>}
+                {!toggle && <p className="text-md tracking-wide">Help</p>}
                 
             </div>
 
             <Link to={"/Activity"}>
                 <div className="flex  gap-2 mt-1 items-center cursor-pointer hover:bg-gray-400 py-1 px-5 transition-all duration-300 rounded-3xl ">
                 <img src={assets.history_icon} alt="" width={25} height={25} />
-                {!toggle && <p className="text-lg tracking-wide">Activity</p>}
+                {!toggle && <p className="text-md tracking-wide">Activity</p>}
                 </div>
             </Link>
             <div className="flex  gap-2 items-center cursor-pointer hover:bg-gray-400 py-1 px-5 transition-all duration-300 rounded-3xl">
                 <img src={assets.setting_icon} alt="" width={25} height={25} />
-                {!toggle && <p className="text-lg tracking-wide">Setting</p>}
+                {!toggle && <p className="text-md tracking-wide">Setting</p>}
                 
             </div>
 

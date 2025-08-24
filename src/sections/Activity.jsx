@@ -17,7 +17,16 @@ const Activity = () => {
 
   const navigate = useNavigate()
 
-  const {history} = useContext(Usercontext) 
+  const {history,sethistory} = useContext(Usercontext) 
+
+
+  
+  const deleteActivity = (itemIndex)=>{
+    sethistory(
+      (prev)=>prev.filter((__,index)=>index!==itemIndex)
+    )
+  }
+
 
 
   return (
@@ -34,9 +43,8 @@ to-[#e4e4e7]
 
     <p className="font-normal text-lg leading-normal "> Below is a record of your past conversations. You can review your activity at any time or remove items you no longer need.</p>
 
-        {history.map((item)=>(
-                <div className="pt-10 pb-2 px-3 border-b-2 border-black flex flex-col gap-2 ">
-        
+        {history.map((item,index)=>(
+        <div key={item.content} className="pt-10 pb-2 px-3 border-b-2 border-black flex flex-col gap-2 ">
         <div className="flex justify-between">
         <div className="flex items-center gap-2">
           <img src={assets.AiNgOdnumLogo} alt="" className="w-7"/>
@@ -45,14 +53,14 @@ to-[#e4e4e7]
           
           <div className="flex gap-7 items-center">
             <p className="tracking-normal text-sm font-bold text-slate-800">{item.date}</p>
-            <FontAwesomeIcon icon="fa-solid fa-x" />
+            <FontAwesomeIcon icon="fa-solid fa-x" onClick={()=>deleteActivity(index)} className="cursor-pointer hover:scale-125 transition-all duration-300" />
 
           </div>
           
         </div>
 
         <div className="pl-9">
-          <h1 className="text-[30px] max-md:text-[27px] font-semibold text-black mb-4">{item.content}</h1>
+          <h1 className="text-[27px] max-md:text-[25px] font-semibold text-black mb-4">{item.content}</h1>
           <p className="tracking-widest text-sm font-bold text-slate-800">{item.time}</p>
         </div>
 
