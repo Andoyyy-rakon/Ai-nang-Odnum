@@ -2,7 +2,11 @@ import React from 'react'
 
 const Settings = () => {
   return (
-    <div>Settings</div>
+    <div className='w-screen'>
+      <div>
+        Settings
+      </div>
+    </div>
   )
 }
 
