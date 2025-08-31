@@ -12,7 +12,7 @@ const Helpcard = ({title,contents,isExpand,isToggle}) => {
 
 
   return (
-    <div className={`relative max-md:pb-[70px]    transition-all duration-300  border-x-3 rounded-xl  border-slate-900 ${isExpand? "max-h-[390px] bg-slate-400 " :"max-h-[60px] bg-slate-300"}`} >
+    <div className={`relative   transition-all duration-300  border-x-3 rounded-xl  border-slate-900 ${isExpand? "max-h-[390px] bg-slate-400 " :"max-h-[60px] bg-slate-300"}`} >
         <div className="flex justify-between p-4  items-center transition-all duration-300" >
             <div className='text-md' >{title}</div>
             <FontAwesomeIcon icon="fa-solid fa-caret-down" className={` transition-all duration-300 text-2xl cursor-pointer ${isExpand?"":"-rotate-90"}`} onClick={isToggle} />
