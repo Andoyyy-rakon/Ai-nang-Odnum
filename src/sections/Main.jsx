@@ -5,7 +5,7 @@ import { askAiNgOdnum } from "../../aaa"
 import { Usercontext } from "../usercontext/Usercontext"
 import { useContext } from "react"
 
-
+// 50%
 
 const Main = ({promt}) => {
 
