@@ -12,6 +12,7 @@ export default function App() {
   const [history,sethistory] = useState([])
   const [promt,setpromt] = useState("")
   const [messsage,setmessage] = useState([])
+  const [darkmode,setdarkmode] = useState(false)
   
 
 
