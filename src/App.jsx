@@ -14,8 +14,9 @@ export default function App() {
   const [messsage,setmessage] = useState([])
   const [darkmode,setdarkmode] = useState(false)
   
+  
 
-
+  
 
   const additem = (item)=>{
     sethistory(prev=>{
@@ -35,7 +36,7 @@ export default function App() {
   return (
 
 
-      <Usercontext.Provider value={{result,setresult, additem,history,messsage,setmessage,sethistory}}>
+      <Usercontext.Provider value={{result,setresult, additem,history,messsage,setmessage,sethistory,darkmode,setdarkmode}}>
         <Routes>
           <Route 
             path="/"
