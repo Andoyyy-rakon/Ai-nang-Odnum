@@ -89,27 +89,27 @@ const Sidebar = ({setpromt}) => {
 
     <>
         <div className={`md:hidden  absolute z-20 px-[31px] py-[24px]  transition-opacity  ${animate ? "opacity-100" :"opacity-0"}`}>
-              <FontAwesomeIcon icon="fa-solid fa-bars" className="text-2xl pt-0 mr-10" onClick={mobileShrink} />
+              <FontAwesomeIcon icon="fa-solid fa-bars" className="dark:text-[#E0E0E0] text-2xl pt-0 mr-10" onClick={mobileShrink} />
         </div>
 
-        <div  className={`min-h-screen ease-in-out  transition-all   duration-300 inline-flex flex-col z-10 ${darkmode? "bg-[#202123]":" bg-gray-300"} px-7 py-5  justify-between fixed ${mobile ? "translate-x-0" : "-translate-x-full"}  md:static md:translate-x-0  ${!wexpand ? "w-[250px]" : "w-[120px]"}  `} >
+        <div  className={`min-h-screen ease-in-out dark:bg-[#1E1E2E]  transition-all   duration-300 inline-flex flex-col z-10  bg-gray-300 px-7 py-5  justify-between fixed ${mobile ? "translate-x-0" : "-translate-x-full"}  md:static md:translate-x-0  ${!wexpand ? "w-[250px]" : "w-[120px]"}  `} >
         <div className="flex flex-col gap-6">
             
-              <FontAwesomeIcon icon="fa-solid fa-bars" className={`text-2xl cursor-pointer pt-1 ${darkmode?"text-[#ECECF1]":"text-black"}`} onClick={shrink} />
-            <div className={`active:bg-gray-400 hover:bg-gray-100 ${darkmode?"hover:bg-gray-400 active:bg-gray-100 ":"hover:bg-gray-100  active:bg-gray-400 "} duration-300 transition-all flex justify-center items-center gap-3 px-4 py-3 rounded-full ${darkmode?"bg-[#ECECF1]":"bg-gray-400"}   cursor-pointer `} onClick={newchat}>
-                <img src={assets.plus_icon} alt="" width={20} className="hover:animate-spin"/>
-                {!toggle && <h3> New Chat</h3>}
+              <FontAwesomeIcon icon="fa-solid fa-bars" className={`dark:text-[#E0E0E0] text-2xl cursor-pointer pt-1 text-black`} onClick={shrink} />
+            <div className={` dark:active:bg-[#2A2A3B] dark:bg-[#2A2A3B] dark:hover:bg-[#3A3A4F] active:bg-gray-400 hover:bg-gray-100  duration-300 transition-all flex justify-center items-center gap-3 px-4 py-3 rounded-full bg-gray-400   cursor-pointer `} onClick={newchat}>
+                <FontAwesomeIcon icon="fa-solid fa-plus" className="dark:text-[#EDEDED] text-xl text-[#2D2D2D]" />
+                {!toggle && <h3 className="dark:text-[#EDEDED] text-[#2D2D2D] font-medium "> New Chat</h3>}
                 
             </div>
 
             {!toggle && <div className="flex flex-col gap-2 ">
-                <p className={`font-bold font ${darkmode?"text-[#ECECF1]":"text-black"}`}>Recent</p>
+                <p className={`dark:text-[#E0E0E0] font-bold font`}>Recent</p>
 
            
                 {show && history.map((item)=>(
-                <div key={item}   className="flex justify-start items-center  gap-1 mt-1 cursor-pointer hover:bg-gray-400  px-5 rounded-3xl transition-all duration-300" onClick={()=>setpromt(item)}>        
-                    <FontAwesomeIcon icon="fa-regular fa-message"  className={`${darkmode?"text-[#ECECF1]":"text-black"}`}/>
-                    <p className={`${darkmode?"text-[#ECECF1]":"text-black"}`} >{item.content.slice(0,13)}</p>   
+                <div key={item}   className="dark:hover:bg-[#2A2A3B] p-1 flex justify-start items-center  gap-2 mt-1 cursor-pointer hover:bg-gray-400  px-5 rounded-3xl transition-all duration-300" onClick={()=>setpromt(item)}>        
+                    <FontAwesomeIcon icon="fa-regular fa-message"  className={`text-[#2D2D2D] dark:text-[#E0E0E0]`}/>
+                    <p className={`text-[#2D2D2D] dark:text-[#E0E0E0]`} >{item.content.slice(0,13)}</p>   
                 </div>
 
                 ))}
@@ -125,21 +125,21 @@ const Sidebar = ({setpromt}) => {
         </div>
 
         <div className="flex flex-col ">
-            <div className="flex  gap-2 items-center cursor-pointer hover:bg-gray-400 py-1 px-5 transition-all duration-300 rounded-3xl"  onClick={()=>setshowmodal(true)}>
-                <FontAwesomeIcon icon="fa-solid fa-circle-question"  className={`${darkmode?"text-[#ECECF1]":"text-black"} text-[1.2rem] `} />
-                {!toggle && <p className={`text-md font-medium tracking-wide ${darkmode?"text-[#ECECF1]":"text-black"}`}>Help</p>}
+            <div className="flex  gap-2 items-center cursor-pointer dark:hover:bg-[#2A2A3B] hover:bg-gray-400 py-1 px-5 transition-all duration-300 rounded-3xl"  onClick={()=>setshowmodal(true)}>
+                <FontAwesomeIcon icon="fa-solid fa-circle-question"  className={`dark:text-[#E0E0E0] text-[1.2rem] text-[#2D2D2D] `} />
+                {!toggle && <p className={`dark:text-[#E0E0E0] text-md font-medium tracking-wide text-[#2D2D2D]`}>Help</p>}
                 
             </div>
 
             <Link to={"/Activity"}>
-                <div className="flex  gap-2 mt-1 items-center cursor-pointer hover:bg-gray-400 py-1 px-5 transition-all duration-300 rounded-3xl ">
-                <FontAwesomeIcon icon="fa-solid fa-clock"  className={`${darkmode?"text-[#ECECF1]":"text-black"} text-lg `} />
-                {!toggle && <p className={`text-md font-medium tracking-wide ${darkmode?"text-[#ECECF1]":"text-black"}`}>Activity</p>}
+                <div className="flex  gap-2 mt-1 items-center cursor-pointer dark:hover:bg-[#2A2A3B] hover:bg-gray-400 py-1 px-5 transition-all duration-300 rounded-3xl ">
+                <FontAwesomeIcon icon="fa-solid fa-clock"  className={`dark:text-[#E0E0E0] text-lg  text-[#2D2D2D]`} />
+                {!toggle && <p className={`dark:text-[#E0E0E0] text-md font-medium tracking-wide text-[#2D2D2D]`}>Activity</p>}
                 </div>
             </Link>
-            <div className="flex  gap-2 items-center cursor-pointer hover:bg-gray-400 py-1 px-5 transition-all duration-300 rounded-3xl" onClick={()=>setshowsettings(true)}>
-                <FontAwesomeIcon icon="fa-solid fa-gear" className={`${darkmode?"text-[#ECECF1]":"text-black"} text-lg `} />
-                {!toggle && <p className={`text-md font-medium tracking-wide ${darkmode?"text-[#ECECF1]":"text-black"}`}>Setting</p>}
+            <div className="flex  gap-2 items-center cursor-pointer dark:hover:bg-[#2A2A3B] hover:bg-gray-400 py-1 px-5 transition-all duration-300 rounded-3xl" onClick={()=>setshowsettings(true)}>
+                <FontAwesomeIcon icon="fa-solid fa-gear" className={`dark:text-[#E0E0E0] text-lg text-[#2D2D2D] `} />
+                {!toggle && <p className={`dark:text-[#E0E0E0] text-md font-medium tracking-wide text-[#2D2D2D] `}>Setting</p>}
                 
             </div>
 

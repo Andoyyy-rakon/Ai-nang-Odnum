@@ -1,6 +1,6 @@
 import Main from "./sections/Main"
 import Sidebar from "./sections/Sidebar"
-import { useState } from "react"
+import { useEffect, useState } from "react"
 import { Usercontext } from "./usercontext/Usercontext"
 import { Route,Routes } from "react-router-dom"
 import Activity from "./sections/Activity"
@@ -14,6 +14,9 @@ export default function App() {
   const [messsage,setmessage] = useState([])
   const [darkmode,setdarkmode] = useState(false)
   
+  useEffect(()=>{
+    document.documentElement.classList.toggle("dark",darkmode);
+  },[darkmode])
   
 
   
