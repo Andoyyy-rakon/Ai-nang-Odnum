@@ -107,7 +107,7 @@ const Main = ({promt}) => {
 
 
   return (
-    <div className=" dark:bg-[#1A1A26] dark:bg-none relative pb-[23vh] max-md:w-full flex flex-1 flex-col bg-[radial-gradient(ellipse_at_bottom,_var(--tw-gradient-stops))]
+    <div className=" dark:bg-[#1A1A26] dark:bg-none transition-all duration-300 ease-in-out relative pb-[23vh] max-md:w-full flex flex-1 flex-col bg-[radial-gradient(ellipse_at_bottom,_var(--tw-gradient-stops))]
 from-[#52525b]
 via-[#a1a1aa]
 to-[#e4e4e7]

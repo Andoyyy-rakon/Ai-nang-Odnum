@@ -151,18 +151,18 @@ const Sidebar = ({setpromt}) => {
 
     {showmodal && 
         <>
-            <div className="fixed inset-0 bg-black z-40 bg-opacity-50 transition-opacity duration-300 cursor-pointer " onClick={()=>setshowmodal(false)}>
+            <div className="dark:bg-opacity-55 fixed inset-0 bg-black z-40 bg-opacity-50 transition-opacity duration-300 cursor-pointer " onClick={()=>setshowmodal(false)}>
             </div>
 
-            <div className={` overflow-auto scrollbar max-xl:max-w-[90%] xl:max-w-[50%] items-center z-50 m-auto transition-all duration-300  flex flex-col bg-slate-100 fixed inset-0 max-h-[90%] ${!scrlbar?"rounded-3xl":"rounded-l-3xl"} shadow-md shadow-slate-800 p-5 pb-6`} >
+            <div className={` dark:bg-[#1E1E2E] dark:shadow-none overflow-auto scrollbar max-xl:max-w-[90%] xl:max-w-[50%] items-center z-50 m-auto transition-all duration-300  flex flex-col bg-slate-100 fixed inset-0 max-h-[90%] ${!scrlbar?"rounded-3xl":"rounded-l-3xl"} shadow-md shadow-slate-800 p-5 pb-6`} >
         
                 <button className="absolute right-4" onClick={()=>setshowmodal(false)}>
 
                     
-                    <FontAwesomeIcon icon="fa-regular fa-circle-xmark" className="text-2xl"/>
+                    <FontAwesomeIcon icon="fa-regular fa-circle-xmark" className="dark:text-[#E0E0E0] text-2xl"/>
                 </button>
 
-                <h2 className="text-xl mt-3 font-semibold">Help & Guide</h2>
+                <h2 className="dark:text-[#E0E0E0] text-xl mt-3 font-semibold">Help & Guide</h2>
             
                 <div className="flex flex-col gap-3 flex-1 p-10 ">
                     {helpdata.map((item)=>(
@@ -177,7 +177,7 @@ const Sidebar = ({setpromt}) => {
 
 
                 <div className="bottom-11 flex flex-col gap-2 w-full px-12">
-                    <h1 className="font-bold text-lg">FAQ</h1>
+                    <h1 className="dark:text-[#E0E0E0] font-bold text-lg">FAQ</h1>
                     {fData.map((item)=>(
                         <Fdata key={item.id} {...item}/>
                     ))}
