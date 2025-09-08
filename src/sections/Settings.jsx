@@ -8,7 +8,7 @@ const Settings = () => {
 
 
   return (
-          <div className="flex items-center justify-between w-[90%] mt-5   px-4 py-3 rounded-full bg-slate-300">
+          <div className="dark:bg-[#2A2A3B] flex items-center justify-between w-[90%] mt-5   px-4 py-3 rounded-full bg-slate-300 transition-all duration-300 ease-in-out">
                     
                     <h1 className="font-s text-lg font-medium">Theme</h1> 
                     

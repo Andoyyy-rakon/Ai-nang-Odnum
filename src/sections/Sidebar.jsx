@@ -198,10 +198,10 @@ const Sidebar = ({setpromt}) => {
 
     {showsettings&&
         <>
-            <div className="fixed inset-0 bg-black z-40 bg-opacity-50 transition-opacity duration-300 cursor-pointer " onClick={()=>setshowsettings(false)}>
+            <div className="transition-all duration-300 ease-in-out fixed dark:bg-opacity-55 inset-0 bg-black z-40 bg-opacity-50 cursor-pointer " onClick={()=>setshowsettings(false)}>
             </div>
 
-            <div className={` overflow-auto scrollbar max-w-[550px] max-md:w-[90%] items-center z-50 m-auto transition-all duration-300  flex flex-col bg-slate-100 fixed inset-0 max-h-[50%] ${!scrlbar?"rounded-3xl":"rounded-l-3xl"} shadow-md shadow-slate-800 pt-10 p-5 pb-6`} >
+            <div className={` ease-in-out dark:bg-[#1E1E2E] dark:shadow-none overflow-auto  max-w-[550px] max-md:w-[90%] items-center z-50 m-auto transition-all duration-300  flex flex-col bg-slate-100 fixed inset-0 max-h-[50%] ${!scrlbar?"rounded-3xl":"rounded-l-3xl"} shadow-md shadow-slate-800 pt-10 p-5 pb-6`} >
                 <button className="absolute right-4 top-5" onClick={()=>setshowsettings(false)}>
 
                     
