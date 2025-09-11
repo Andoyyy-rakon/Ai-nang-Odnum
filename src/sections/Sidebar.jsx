@@ -5,6 +5,8 @@ import { useContext } from "react"
 import { useEffect } from "react"
 import Settings from "./Settings"
 
+import ChangeFontSettings from "./ChangeFontSettings"
+
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { library } from '@fortawesome/fontawesome-svg-core'
 import { Link } from "react-router-dom"
@@ -209,6 +211,7 @@ const Sidebar = ({setpromt}) => {
                 </button>
 
                 <Settings/>
+                <ChangeFontSettings/>
                 
                 
             </div>

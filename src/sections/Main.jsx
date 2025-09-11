@@ -164,7 +164,7 @@ to-[#e4e4e7]
 
     {/* Bottom area input field div */}
 
-  <div className="w-full m-auto absolute pb-3 px-4  bottom-0">
+  <div className="w-full m-auto absolute  pb-3 px-4  bottom-0">
     <div className="dark:border-2 dark:border-[#3A3A4F] flex  max-w-[900px] my-0 mx-auto border-2 py-[10px] px-[20px] gap-2 border-gray-900 w-full justify-between rounded-[50px] items-center">
       <input placeholder="Enter Promt here" type="text" value={input} className="dark:placeholder:text-[#D1D1D1] dark:text-[#D1D1D1] placeholder:text-black flex-1 min-w-0 border-none bg-transparent outline-none text-lg " onChange={e=>setinput(e.target.value)} onKeyDown={enterSent} />
       <FontAwesomeIcon icon="fa-solid fa-image" className="text-xl dark:text-[#D1D1D1]" />
