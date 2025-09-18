@@ -8,7 +8,7 @@ export default {
   theme: {
     extend: {
       fontFamily:{
-         Outfit: ['Outfit', 'sans-serif'],
+         outfit: ['Outfit', 'sans-serif'],
       },
       backgroundImage:{
         'card': "url(./src/assets/AiNgOdnum.png)"
