@@ -207,7 +207,7 @@ const Sidebar = ({setpromt}) => {
                 <button className="absolute right-4 top-5" onClick={()=>setshowsettings(false)}>
 
                     
-                    <FontAwesomeIcon icon="fa-regular fa-circle-xmark" className="text-2xl"/>
+                    <FontAwesomeIcon icon="fa-regular fa-circle-xmark" className="text-2xl dark:text-[#E0E0E0]"/>
                 </button>
 
                 <Settings/>
